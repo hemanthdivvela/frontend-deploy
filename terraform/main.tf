@@ -30,16 +30,18 @@ resource "null_resource" "frontend" {
     }
 
     provisioner "file" {
-        source      = "${var.common_tags.Component}.sh"
+        source = "${var.common_tags.Component}.sh"
         destination = "/tmp/${var.common_tags.Component}.sh"
+      
     }
 
+    # remote server run
     provisioner "remote-exec" {
-        inline = [
+        inline = [ 
             "chmod +x /tmp/${var.common_tags.Component}.sh",
             "sudo sh /tmp/${var.common_tags.Component}.sh ${var.common_tags.Component} ${var.environment} ${var.app_version}"
         ]
-    } 
+    }
 }
 
 resource "aws_ec2_instance_state" "frontend" {
