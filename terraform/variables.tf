@@ -23,6 +23,7 @@ variable "zone_name" {
   
 }
 
+# created this as part of Jenkins CD
 variable "app_version" {
-  
+
 }
