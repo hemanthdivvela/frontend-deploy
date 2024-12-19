@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "hemanth78s-remote-state"
-    key    = "expense-dev-frontend-1"
+    key    = "expense-dev-frontend"
     region = "us-east-1"
     dynamodb_table = "hemanth78s-locking"
   }
